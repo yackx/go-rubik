@@ -6,7 +6,7 @@ Thoroughly-tested representation of the Rubik's Cube in `go-lang`. A naive and l
 
 The cube is represented as a `[]rune`:
 
-!()[cube.png]
+![Cube representation](cube.png)
 
 You can instantiate a new solved cube, or with the initial state of your choice.
 
@@ -36,5 +36,5 @@ solved := rubik.Solve(cube)
 ```
 
 See [better algorithms](https://en.wikipedia.org/wiki/Optimal_solutions_for_Rubik%27s_Cube) or
-["Algorithms for solving the Rubik's cube"](Algorithms for solving the Rubik's cube - Harpreet Kaur.pdf)
+[Algorithms for solving the Rubik's cube - Harpreet Kaur](HarpreetKaur.pdf)
 by Harpreet Kaur.
