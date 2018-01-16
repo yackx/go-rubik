@@ -1,0 +1,40 @@
+# Rubik's Cube in go-lang
+
+Thoroughly-tested representation of the Rubik's Cube in `go-lang`. A naive and limited BFS solver is provided.
+
+## The Cube
+
+The cube is represented as a `[]rune`:
+
+!()[cube.png]
+
+You can instantiate a new solved cube, or with the initial state of your choice.
+
+```
+cube := rubik.NewSolvedCube()
+scrambled := rubik.NewCube("bwwbwwyyr orwogbygb gbbrrwrrw ooygbygbr oogoogyyb rrwgywgyo")
+```
+
+Then move the faces. For instance, front face clockwise, upper face clockwise, right face clockwise,
+and finally upper face counter clockwise:
+
+```
+moved := cube.F().U().R().Uc()
+```
+
+The cube is **immutable**, so each manipulation returns a new cube.
+
+## Solver
+
+A naive solver that uses BFS is available. But because the resolution space is very large,
+the solver will only work on slightly scrambled cubes (3-4 moves away from a solved cube),
+even though cycles are detected and eliminated.
+Beyond that, it will only consume time and fail with insufficient memory.
+
+```
+solved := rubik.Solve(cube)
+```
+
+See [better algorithms](https://en.wikipedia.org/wiki/Optimal_solutions_for_Rubik%27s_Cube) or
+["Algorithms for solving the Rubik's cube"](Algorithms for solving the Rubik's cube - Harpreet Kaur.pdf)
+by Harpreet Kaur.
