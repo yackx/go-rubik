@@ -27,3 +27,10 @@ func main() {
 	d := solved.D()
 	fmt.Printf("o D:\n%s\n", d)
 }
+
+// Cannot be solved by this program. Probably about 5 moves to solution.
+// func TestSolveFunnyLooking(t *testing.T) {
+// 	origin := NewCube("ggggwgggg rrrrgrrrr wwwwrwwww ooooboooo yyyyoyyyy bbbbybbbb")
+// 	moves := Solve(origin)
+// 	fmt.Printf("%s -> %s\n", origin, moves)
+// }
