@@ -1,3 +1,9 @@
+// ------------------------------------------------------------ //
+// THIS CODE WAS WRITTEN BY YACKX. SLICE MOVES ADDED BY HULTAN. //
+// See yackx/go-rubik : https://github.com/yackx/go-rubik	    //
+// ------------------------------------------------------------ //
+
+// Package rubik : Implements a rubik's cube
 package rubik
 
 import (
@@ -217,10 +223,10 @@ func (cube Cube) rotateLeft(index int) Cube {
 // Move Front face clockwise, and return a new Cube.
 func (cube Cube) F() Cube {
 	pairs := []*Pair{
-		&Pair{6, 18}, &Pair{7, 21}, &Pair{8, 24},
-		&Pair{18, 47}, &Pair{21, 46}, &Pair{24, 45},
-		&Pair{45, 38}, &Pair{46, 41}, &Pair{47, 44},
-		&Pair{38, 8}, &Pair{41, 7}, &Pair{44, 6},
+		{6, 18}, {7, 21}, {8, 24},
+		{18, 47}, {21, 46}, {24, 45},
+		{45, 38}, {46, 41}, {47, 44},
+		{38, 8}, {41, 7}, {44, 6},
 	}
 
 	return cube.exchange(pairs).rotateRight(9)
@@ -229,10 +235,10 @@ func (cube Cube) F() Cube {
 // Move Front face counter clockwise, and return a new Cube.
 func (cube Cube) Fc() Cube {
 	pairs := []*Pair{
-		&Pair{6, 44}, &Pair{7, 41}, &Pair{8, 38},
-		&Pair{38, 45}, &Pair{41, 46}, &Pair{44, 47},
-		&Pair{45, 24}, &Pair{46, 21}, &Pair{47, 18},
-		&Pair{18, 6}, &Pair{21, 7}, &Pair{24, 8},
+		{6, 44}, {7, 41}, {8, 38},
+		{38, 45}, {41, 46}, {44, 47},
+		{45, 24}, {46, 21}, {47, 18},
+		{18, 6}, {21, 7}, {24, 8},
 	}
 	return cube.exchange(pairs).rotateLeft(9)
 }
@@ -240,10 +246,10 @@ func (cube Cube) Fc() Cube {
 // Move Back face clockwise, and return a new Cube.
 func (cube Cube) B() Cube {
 	pairs := []*Pair{
-		&Pair{0, 42}, &Pair{1, 39}, &Pair{2, 36},
-		&Pair{36, 51}, &Pair{39, 52}, &Pair{42, 53},
-		&Pair{53, 20}, &Pair{52, 23}, &Pair{51, 26},
-		&Pair{20, 0}, &Pair{23, 1}, &Pair{26, 2},
+		{0, 42}, {1, 39}, {2, 36},
+		{36, 51}, {39, 52}, {42, 53},
+		{53, 20}, {52, 23}, {51, 26},
+		{20, 0}, {23, 1}, {26, 2},
 	}
 	return cube.exchange(pairs).rotateRight(27)
 }
@@ -251,10 +257,10 @@ func (cube Cube) B() Cube {
 // Move Back face counter clockwise, and return a new Cube.
 func (cube Cube) Bc() Cube {
 	pairs := []*Pair{
-		&Pair{0, 20}, &Pair{1, 23}, &Pair{2, 26},
-		&Pair{20, 53}, &Pair{23, 52}, &Pair{26, 51},
-		&Pair{51, 36}, &Pair{52, 39}, &Pair{53, 42},
-		&Pair{36, 2}, &Pair{39, 1}, &Pair{42, 0},
+		{0, 20}, {1, 23}, {2, 26},
+		{20, 53}, {23, 52}, {26, 51},
+		{51, 36}, {52, 39}, {53, 42},
+		{36, 2}, {39, 1}, {42, 0},
 	}
 	return cube.exchange(pairs).rotateLeft(27)
 }
@@ -262,10 +268,10 @@ func (cube Cube) Bc() Cube {
 // Move Upper face clockwise, and return a new Cube.
 func (cube Cube) U() Cube {
 	pairs := []*Pair{
-		&Pair{9, 36}, &Pair{10, 37}, &Pair{11, 38},
-		&Pair{36, 27}, &Pair{37, 28}, &Pair{38, 29},
-		&Pair{27, 18}, &Pair{28, 19}, &Pair{29, 20},
-		&Pair{18, 9}, &Pair{19, 10}, &Pair{20, 11},
+		{9, 36}, {10, 37}, {11, 38},
+		{36, 27}, {37, 28}, {38, 29},
+		{27, 18}, {28, 19}, {29, 20},
+		{18, 9}, {19, 10}, {20, 11},
 	}
 	return cube.exchange(pairs).rotateRight(0)
 }
@@ -273,10 +279,10 @@ func (cube Cube) U() Cube {
 // Move Upper face counter clockwise, and return a new Cube.
 func (cube Cube) Uc() Cube {
 	pairs := []*Pair{
-		&Pair{9, 18}, &Pair{10, 19}, &Pair{11, 20},
-		&Pair{18, 27}, &Pair{19, 28}, &Pair{20, 29},
-		&Pair{27, 36}, &Pair{28, 37}, &Pair{29, 38},
-		&Pair{36, 9}, &Pair{37, 10}, &Pair{38, 11},
+		{9, 18}, {10, 19}, {11, 20},
+		{18, 27}, {19, 28}, {20, 29},
+		{27, 36}, {28, 37}, {29, 38},
+		{36, 9}, {37, 10}, {38, 11},
 	}
 	return cube.exchange(pairs).rotateLeft(0)
 }
@@ -284,10 +290,10 @@ func (cube Cube) Uc() Cube {
 // Move Down face clockwise, and return a new Cube.
 func (cube Cube) D() Cube {
 	pairs := []*Pair{
-		&Pair{15, 24}, &Pair{16, 25}, &Pair{17, 26},
-		&Pair{24, 33}, &Pair{25, 34}, &Pair{26, 35},
-		&Pair{33, 42}, &Pair{34, 43}, &Pair{35, 44},
-		&Pair{42, 15}, &Pair{43, 16}, &Pair{44, 17},
+		{15, 24}, {16, 25}, {17, 26},
+		{24, 33}, {25, 34}, {26, 35},
+		{33, 42}, {34, 43}, {35, 44},
+		{42, 15}, {43, 16}, {44, 17},
 	}
 	return cube.exchange(pairs).rotateRight(45)
 }
@@ -295,10 +301,10 @@ func (cube Cube) D() Cube {
 // Move Down face counter clockwise, and return a new Cube.
 func (cube Cube) Dc() Cube {
 	pairs := []*Pair{
-		&Pair{15, 42}, &Pair{16, 43}, &Pair{17, 44},
-		&Pair{42, 33}, &Pair{43, 34}, &Pair{44, 35},
-		&Pair{33, 24}, &Pair{34, 25}, &Pair{35, 26},
-		&Pair{24, 15}, &Pair{25, 16}, &Pair{26, 17},
+		{15, 42}, {16, 43}, {17, 44},
+		{42, 33}, {43, 34}, {44, 35},
+		{33, 24}, {34, 25}, {35, 26},
+		{24, 15}, {25, 16}, {26, 17},
 	}
 	return cube.exchange(pairs).rotateLeft(45)
 }
@@ -306,10 +312,10 @@ func (cube Cube) Dc() Cube {
 // Move Left face clockwise, and return a new Cube.
 func (cube Cube) L() Cube {
 	pairs := []*Pair{
-		&Pair{0, 9}, &Pair{3, 12}, &Pair{6, 15},
-		&Pair{9, 45}, &Pair{12, 48}, &Pair{15, 51},
-		&Pair{45, 35}, &Pair{48, 32}, &Pair{51, 29},
-		&Pair{29, 6}, &Pair{32, 3}, &Pair{35, 0},
+		{0, 9}, {3, 12}, {6, 15},
+		{9, 45}, {12, 48}, {15, 51},
+		{45, 35}, {48, 32}, {51, 29},
+		{29, 6}, {32, 3}, {35, 0},
 	}
 	return cube.exchange(pairs).rotateRight(36)
 }
@@ -317,10 +323,10 @@ func (cube Cube) L() Cube {
 // Move Left face counter clockwise, and return a new Cube.
 func (cube Cube) Lc() Cube {
 	pairs := []*Pair{
-		&Pair{0, 35}, &Pair{3, 32}, &Pair{6, 29},
-		&Pair{29, 51}, &Pair{32, 48}, &Pair{35, 45},
-		&Pair{45, 9}, &Pair{48, 12}, &Pair{51, 15},
-		&Pair{9, 0}, &Pair{12, 3}, &Pair{15, 6},
+		{0, 35}, {3, 32}, {6, 29},
+		{29, 51}, {32, 48}, {35, 45},
+		{45, 9}, {48, 12}, {51, 15},
+		{9, 0}, {12, 3}, {15, 6},
 	}
 	return cube.exchange(pairs).rotateLeft(36)
 }
@@ -328,10 +334,10 @@ func (cube Cube) Lc() Cube {
 // Move Right face clockwise, and return a new Cube.
 func (cube Cube) R() Cube {
 	pairs := []*Pair{
-		&Pair{2, 33}, &Pair{5, 30}, &Pair{8, 27},
-		&Pair{27, 53}, &Pair{30, 50}, &Pair{33, 47},
-		&Pair{47, 11}, &Pair{50, 14}, &Pair{53, 17},
-		&Pair{11, 2}, &Pair{14, 5}, &Pair{17, 8},
+		{2, 33}, {5, 30}, {8, 27},
+		{27, 53}, {30, 50}, {33, 47},
+		{47, 11}, {50, 14}, {53, 17},
+		{11, 2}, {14, 5}, {17, 8},
 	}
 	return cube.exchange(pairs).rotateRight(18)
 }
@@ -339,10 +345,70 @@ func (cube Cube) R() Cube {
 // Move Right face counter clockwise, and return a new Cube.
 func (cube Cube) Rc() Cube {
 	pairs := []*Pair{
-		&Pair{2, 11}, &Pair{5, 14}, &Pair{8, 17},
-		&Pair{11, 47}, &Pair{14, 50}, &Pair{17, 53},
-		&Pair{47, 33}, &Pair{50, 30}, &Pair{53, 27},
-		&Pair{27, 8}, &Pair{30, 5}, &Pair{33, 2},
+		{2, 11}, {5, 14}, {8, 17},
+		{11, 47}, {14, 50}, {17, 53},
+		{47, 33}, {50, 30}, {53, 27},
+		{27, 8}, {30, 5}, {33, 2},
 	}
 	return cube.exchange(pairs).rotateLeft(18)
+}
+
+func (cube Cube) M() Cube {
+	pairs := []*Pair{
+		{52, 34}, {49, 31}, {46, 28},
+		{28, 7}, {31, 4}, {34, 1},
+		{7, 16}, {4, 13}, {1, 10},
+		{16, 52}, {13, 49}, {10, 46},
+	}
+	return cube.exchange(pairs)
+}
+
+func (cube Cube) Mc() Cube {
+	pairs := []*Pair{
+		{46, 10}, {49, 13}, {52, 16},
+		{10, 1}, {13, 4}, {16, 7},
+		{1, 34}, {4, 31}, {7, 28},
+		{28, 46}, {31, 49}, {34, 52},
+	}
+	return cube.exchange(pairs)
+}
+
+func (cube Cube) S() Cube {
+	pairs := []*Pair{
+		{43, 3}, {40, 4}, {37, 5},
+		{3, 19}, {4, 22}, {5, 25},
+		{19, 50}, {22, 49}, {25, 48},
+		{50, 43}, {49, 40}, {48, 37},
+	}
+	return cube.exchange(pairs)
+}
+
+func (cube Cube) Sc() Cube {
+	pairs := []*Pair{
+		{37, 48}, {40, 49}, {43, 50},
+		{48, 25}, {49, 22}, {50, 19},
+		{25, 5}, {22, 4}, {19, 3},
+		{5, 37}, {4, 40}, {3, 43},
+	}
+	return cube.exchange(pairs)
+}
+
+func (cube Cube) E() Cube {
+	pairs := []*Pair{
+		{12, 21}, {13, 22}, {14, 23},
+		{21, 30}, {22, 31}, {23, 32},
+		{30, 39}, {31, 40}, {32, 41},
+		{39, 12}, {40, 13}, {41, 14},
+	}
+	return cube.exchange(pairs)
+}
+
+func (cube Cube) Ec() Cube {
+	pairs := []*Pair{
+		{14, 41}, {13, 40}, {12, 39},
+		{41, 32}, {40, 31}, {39, 30},
+		{32, 23}, {31, 22}, {30, 21},
+		{23, 14}, {22, 13}, {21, 12},
+	}
+	return cube.exchange(pairs)
 }
