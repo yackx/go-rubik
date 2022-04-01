@@ -365,3 +365,567 @@ func Test02(t *testing.T) {
 		t.Errorf("Test 02 not returned to origin:\nGot  %s\nWant %s", turned, target)
 	}
 }
+
+//
+// SLICE MOVES (ADDED BY HULTAN)
+//
+
+//
+// MIDDLE
+//
+
+func TestM(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.M()
+	target := NewCube("wbwwbwwbw gwggwggwg rrrrrrrrr bybbybbyb ooooooooo ygyygyygy")
+	if !target.Equals(turned) {
+		t.Errorf("o M incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestMc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Mc()
+	target := NewCube("wgwwgwwgw gyggyggyg rrrrrrrrr bwbbwbbwb ooooooooo ybyybyyby")
+	if !target.Equals(turned) {
+		t.Errorf("o M' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestMMMM(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.M().M().M().M()
+	if !origin.Equals(circle) {
+		t.Error("o M M M M should return to o", circle)
+	}
+}
+
+func TestMcMcMcMc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Mc().Mc().Mc().Mc()
+	if !origin.Equals(circle) {
+		t.Error("o M' M' M' M' should return to o", circle)
+	}
+}
+
+func TestMMc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.M().Mc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o M M' should return to o", doAndUndo)
+	}
+}
+
+//
+// EQUATOR
+//
+
+func TestE(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.E()
+	target := NewCube("wwwwwwwww gggoooggg rrrgggrrr bbbrrrbbb ooobbbooo yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o E incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestEc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Ec()
+	target := NewCube("wwwwwwwww gggrrrggg rrrbbbrrr bbbooobbb ooogggooo yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o E' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestEEEE(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.E().E().E().E()
+	if !origin.Equals(circle) {
+		t.Error("o E E E E should return to o", circle)
+	}
+}
+
+func TestEcEcEcEc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Ec().Ec().Ec().Ec()
+	if !origin.Equals(circle) {
+		t.Error("o E' E' E' E' should return to o", circle)
+	}
+}
+
+func TestEEc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.E().Ec()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o E E' should return to o", doAndUndo)
+	}
+}
+
+//
+// SIDE
+//
+
+func TestS(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.S()
+	target := NewCube("wwwooowww ggggggggg rwrrwrrwr bbbbbbbbb oyooyooyo yyyrrryyy")
+	if !target.Equals(turned) {
+		t.Errorf("o S incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestSc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Sc()
+	target := NewCube("wwwrrrwww ggggggggg ryrryrryr bbbbbbbbb owoowoowo yyyoooyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o S' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestSSSS(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.S().S().S().S()
+	if !origin.Equals(circle) {
+		t.Error("o S S S S should return to o", circle)
+	}
+}
+
+func TestScScScSc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Sc().Sc().Sc().Sc()
+	if !origin.Equals(circle) {
+		t.Error("o S' S' S' S' should return to o", circle)
+	}
+}
+
+func TestSSc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.S().Sc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o S S' should return to o", doAndUndo)
+	}
+}
+
+//
+// DOUBLE MOVES (ADDED BY HULTAN)
+//
+
+//
+// Ud AND Udc
+//
+
+func TestUd(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Ud()
+	target := NewCube("wwwwwwwww rrrrrrggg bbbbbbrrr oooooobbb ggggggooo yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o u incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestUdc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Udc()
+	target := NewCube("wwwwwwwww ooooooggg ggggggrrr rrrrrrbbb bbbbbbooo yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o u' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestUdUdUdUd(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Ud().Ud().Ud().Ud()
+	if !origin.Equals(circle) {
+		t.Error("o u u u u should return to o", circle)
+	}
+}
+
+func TestUdcUdcUdcUdc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Udc().Udc().Udc().Udc()
+	if !origin.Equals(circle) {
+		t.Error("o u' u' u' u' should return to o", circle)
+	}
+}
+
+func TestUdUdc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Ud().Udc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o u u' should return to o", doAndUndo)
+	}
+}
+
+//
+// Dd AND Ddc
+//
+
+func TestDd(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Dd()
+	target := NewCube("wwwwwwwww gggoooooo rrrgggggg bbbrrrrrr ooobbbbbb yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o d incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestDdc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Ddc()
+	target := NewCube("wwwwwwwww gggrrrrrr rrrbbbbbb bbboooooo ooogggggg yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o d' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestDdDdDdDd(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Dd().Dd().Dd().Dd()
+	if !origin.Equals(circle) {
+		t.Error("o d d d d should return to o", circle)
+	}
+}
+
+func TestDdcDdcDdcDdc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Ddc().Ddc().Ddc().Ddc()
+	if !origin.Equals(circle) {
+		t.Error("o d' d' d' d' should return to o", circle)
+	}
+}
+
+func TestDdDdc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Dd().Ddc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o d d' should return to o", doAndUndo)
+	}
+}
+
+//
+// Fd AND Fdc
+//
+
+func TestFd(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Fd()
+	target := NewCube("wwwoooooo ggggggggg wwrwwrwwr bbbbbbbbb oyyoyyoyy rrrrrryyy")
+	if !target.Equals(turned) {
+		t.Errorf("o f incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestFdc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Fdc()
+	target := NewCube("wwwrrrrrr ggggggggg yyryyryyr bbbbbbbbb owwowwoww ooooooyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o f' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestFdFdFdFd(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Fd().Fd().Fd().Fd()
+	if !origin.Equals(circle) {
+		t.Error("o f f f f should return to o", circle)
+	}
+}
+
+func TestFdcFdcFdcFdc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Fdc().Fdc().Fdc().Fdc()
+	if !origin.Equals(circle) {
+		t.Error("o f' f' f' f' should return to o", circle)
+	}
+}
+
+func TestFdFdc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Fd().Fdc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o f f' should return to o", doAndUndo)
+	}
+}
+
+//
+// Bd AND Bdc
+//
+
+func TestBd(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Bd()
+	target := NewCube("rrrrrrwww ggggggggg ryyryyryy bbbbbbbbb wwowwowwo yyyoooooo")
+	if !target.Equals(turned) {
+		t.Errorf("o b incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestBdc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Bdc()
+	target := NewCube("oooooowww ggggggggg rwwrwwrww bbbbbbbbb yyoyyoyyo yyyrrrrrr")
+	if !target.Equals(turned) {
+		t.Errorf("o b' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestBdBdBdBd(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Bd().Bd().Bd().Bd()
+	if !origin.Equals(circle) {
+		t.Error("o b b b b should return to o", circle)
+	}
+}
+
+func TestBdcBdcBdcBdc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Bdc().Bdc().Bdc().Bdc()
+	if !origin.Equals(circle) {
+		t.Error("o b' b' b' b' should return to o", circle)
+	}
+}
+
+func TestBdBdc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Bd().Bdc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o b b' should return to o", doAndUndo)
+	}
+}
+
+//
+// Ld AND Ldc
+//
+
+func TestLd(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Ld()
+	target := NewCube("bbwbbwbbw wwgwwgwwg rrrrrrrrr byybyybyy ooooooooo ggyggyggy")
+	if !target.Equals(turned) {
+		t.Errorf("o l incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestLdc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Ldc()
+	target := NewCube("ggwggwggw yygyygyyg rrrrrrrrr bwwbwwbww ooooooooo bbybbybby")
+	if !target.Equals(turned) {
+		t.Errorf("o l' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestLdLdLdLd(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Ld().Ld().Ld().Ld()
+	if !origin.Equals(circle) {
+		t.Error("o l l l l should return to o", circle)
+	}
+}
+
+func TestLdcLdcLdcLdc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Ldc().Ldc().Ldc().Ldc()
+	if !origin.Equals(circle) {
+		t.Error("o l' l' l' l' should return to o", circle)
+	}
+}
+
+func TestLdLdc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Ld().Ldc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o l l' should return to o", doAndUndo)
+	}
+}
+
+//
+// Rd AND Rdc
+//
+
+func TestRd(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Rd()
+	target := NewCube("wggwggwgg gyygyygyy rrrrrrrrr wwbwwbwwb ooooooooo ybbybbybb")
+	if !target.Equals(turned) {
+		t.Errorf("o r incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestRdc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Rdc()
+	target := NewCube("wbbwbbwbb gwwgwwgww rrrrrrrrr yybyybyyb ooooooooo yggyggygg")
+	if !target.Equals(turned) {
+		t.Errorf("o r' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestRdRdRdRd(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Rd().Rd().Rd().Rd()
+	if !origin.Equals(circle) {
+		t.Error("o r r r r should return to o", circle)
+	}
+}
+
+func TestRdcRdcRdcRdc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Rdc().Rdc().Rdc().Rdc()
+	if !origin.Equals(circle) {
+		t.Error("o r' r' r' r' should return to o", circle)
+	}
+}
+
+func TestRdRdc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Rd().Rdc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o r r' should return to o", doAndUndo)
+	}
+}
+
+//
+// ROTATIONS (ADDED BY HULTAN)
+//
+
+//
+// X AND X'
+//
+
+func TestX(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.X()
+	target := NewCube("bbbbbbbbb wwwwwwwww rrrrrrrrr yyyyyyyyy ooooooooo ggggggggg")
+	if !target.Equals(turned) {
+		t.Errorf("o x incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestXc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Xc()
+	target := NewCube("ggggggggg yyyyyyyyy rrrrrrrrr wwwwwwwww ooooooooo bbbbbbbbb")
+	if !target.Equals(turned) {
+		t.Errorf("o x' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestXXXX(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.X().X().X().X()
+	if !origin.Equals(circle) {
+		t.Error("o x x x x should return to o", circle)
+	}
+}
+
+func TestXcXcXcXc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Xc().Xc().Xc().Xc()
+	if !origin.Equals(circle) {
+		t.Error("o x' x' x' x' should return to o", circle)
+	}
+}
+
+func TestXXc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.X().Xc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o x x' should return to o", doAndUndo)
+	}
+}
+
+//
+// Y AND Y'
+//
+
+func TestY(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Y()
+	target := NewCube("wwwwwwwww rrrrrrrrr bbbbbbbbb ooooooooo ggggggggg yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o y incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestYc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Yc()
+	target := NewCube("wwwwwwwww ooooooooo ggggggggg rrrrrrrrr bbbbbbbbb yyyyyyyyy")
+	if !target.Equals(turned) {
+		t.Errorf("o y' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestYYYY(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Y().Y().Y().Y()
+	if !origin.Equals(circle) {
+		t.Error("o y y y y should return to o", circle)
+	}
+}
+
+func TestYcYcYcYc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Yc().Yc().Yc().Yc()
+	if !origin.Equals(circle) {
+		t.Error("o y' y' y' y' should return to o", circle)
+	}
+}
+
+func TestYYc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Y().Yc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o y y' should return to o", doAndUndo)
+	}
+}
+
+//
+// Z AND Z'
+//
+
+func TestZ(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Z()
+	target := NewCube("ooooooooo ggggggggg wwwwwwwww bbbbbbbbb yyyyyyyyy rrrrrrrrr")
+	if !target.Equals(turned) {
+		t.Errorf("o z incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestZc(t *testing.T) {
+	origin := NewSolvedCube()
+	turned := origin.Zc()
+	target := NewCube("rrrrrrrrr ggggggggg yyyyyyyyy bbbbbbbbb wwwwwwwww ooooooooo")
+	if !target.Equals(turned) {
+		t.Errorf("o z' incorrect:\nGot  %s\nWant %s", turned, target)
+	}
+}
+
+func TestZZZZ(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Z().Z().Z().Z()
+	if !origin.Equals(circle) {
+		t.Error("o z z z z should return to o", circle)
+	}
+}
+
+func TestZcZcZcZc(t *testing.T) {
+	origin := NewSolvedCube()
+	circle := origin.Zc().Zc().Zc().Zc()
+	if !origin.Equals(circle) {
+		t.Error("o z' z' z' z' should return to o", circle)
+	}
+}
+
+func TestZZc(t *testing.T) {
+	origin := NewSolvedCube()
+	doAndUndo := origin.Z().Zc()
+	if !origin.Equals(doAndUndo) {
+		t.Error("o z z' should return to o", doAndUndo)
+	}
+}

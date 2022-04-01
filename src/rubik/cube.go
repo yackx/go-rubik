@@ -353,6 +353,7 @@ func (cube Cube) Rc() Cube {
 	return cube.exchange(pairs).rotateLeft(18)
 }
 
+// Move middle layer clockwise, and return a new Cube.
 func (cube Cube) M() Cube {
 	pairs := []*Pair{
 		{52, 34}, {49, 31}, {46, 28},
@@ -363,6 +364,7 @@ func (cube Cube) M() Cube {
 	return cube.exchange(pairs)
 }
 
+// Move middle layer counter clockwise, and return a new Cube.
 func (cube Cube) Mc() Cube {
 	pairs := []*Pair{
 		{46, 10}, {49, 13}, {52, 16},
@@ -373,6 +375,7 @@ func (cube Cube) Mc() Cube {
 	return cube.exchange(pairs)
 }
 
+// Move slide layer clockwise, and return a new Cube.
 func (cube Cube) S() Cube {
 	pairs := []*Pair{
 		{43, 3}, {40, 4}, {37, 5},
@@ -383,6 +386,7 @@ func (cube Cube) S() Cube {
 	return cube.exchange(pairs)
 }
 
+// Move slide layer counter clockwise, and return a new Cube.
 func (cube Cube) Sc() Cube {
 	pairs := []*Pair{
 		{37, 48}, {40, 49}, {43, 50},
@@ -393,6 +397,7 @@ func (cube Cube) Sc() Cube {
 	return cube.exchange(pairs)
 }
 
+// Move equator layer clockwise, and return a new Cube.
 func (cube Cube) E() Cube {
 	pairs := []*Pair{
 		{12, 21}, {13, 22}, {14, 23},
@@ -403,6 +408,7 @@ func (cube Cube) E() Cube {
 	return cube.exchange(pairs)
 }
 
+// Move equator layer counter clockwise, and return a new Cube.
 func (cube Cube) Ec() Cube {
 	pairs := []*Pair{
 		{14, 41}, {13, 40}, {12, 39},
@@ -411,4 +417,102 @@ func (cube Cube) Ec() Cube {
 		{23, 14}, {22, 13}, {21, 12},
 	}
 	return cube.exchange(pairs)
+}
+
+//
+// DOUBLE MOVES (u u' d d' f f' b b' r r' l l')
+//
+
+// Move upper two layers clockwise, and return a new cube
+func (cube Cube) Ud() Cube {
+	return cube.Ec().U()
+}
+
+// Move upper two layers counter clockwise, and return a new cube
+func (cube Cube) Udc() Cube {
+	return cube.E().Uc()
+}
+
+// Move lower two layers clockwise, and return a new cube
+func (cube Cube) Dd() Cube {
+	return cube.E().D()
+}
+
+// Move lower two layers counter clockwise, and return a new cube
+func (cube Cube) Ddc() Cube {
+	return cube.Ec().Dc()
+}
+
+// Move front two layers clockwise, and return a new cube
+func (cube Cube) Fd() Cube {
+	return cube.S().F()
+}
+
+// Move front two layers counter clockwise, and return a new cube
+func (cube Cube) Fdc() Cube {
+	return cube.Sc().Fc()
+}
+
+// Move back two layers clockwise, and return a new cube
+func (cube Cube) Bd() Cube {
+	return cube.Sc().B()
+}
+
+// Move back two layers counter clockwise, and return a new cube
+func (cube Cube) Bdc() Cube {
+	return cube.S().Bc()
+}
+
+// Move left two layers clockwise, and return a new cube
+func (cube Cube) Ld() Cube {
+	return cube.L().M()
+}
+
+// Move left two layers counter clockwise, and return a new cube
+func (cube Cube) Ldc() Cube {
+	return cube.Lc().Mc()
+}
+
+// Move right two layers clockwise, and return a new cube
+func (cube Cube) Rd() Cube {
+	return cube.R().Mc()
+}
+
+// Move right two layers counter clockwise, and return a new cube
+func (cube Cube) Rdc() Cube {
+	return cube.Rc().M()
+}
+
+//
+// CUBE ROTATIONS (ADDED BY HULTAN)
+//
+
+// Rotate the cube around the x axis clockwise, and return a new cube
+func (cube Cube) X() Cube {
+	return cube.L().M().Rc()
+}
+
+// Rotate the cube around the x axis counter clockwise, and return a new cube
+func (cube Cube) Xc() Cube {
+	return cube.Lc().Mc().R()
+}
+
+// Rotate the cube around the y axis clockwise, and return a new cube
+func (cube Cube) Y() Cube {
+	return cube.U().Ec().Dc()
+}
+
+// Rotate the cube around the y axis counter clockwise, and return a new cube
+func (cube Cube) Yc() Cube {
+	return cube.Uc().E().D()
+}
+
+// Rotate the cube around the z axis clockwise, and return a new cube
+func (cube Cube) Z() Cube {
+	return cube.F().S().Bc()
+}
+
+// Rotate the cube around the z axis counter clockwise, and return a new cube
+func (cube Cube) Zc() Cube {
+	return cube.Fc().Sc().B()
 }
