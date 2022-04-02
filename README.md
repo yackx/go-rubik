@@ -20,7 +20,7 @@ scrambled := rubik.NewCube("bwwbwwyyr orwogbygb gbbrrwrrw ooygbygbr oogoogyyb rr
 ```
 
 Then move the faces. For instance, front face clockwise, upper face clockwise, right face clockwise,
-and finally upper face counter clockwise:
+and finally upper face counterclockwise:
 
 ```
 moved := cube.F().U().R().Uc()

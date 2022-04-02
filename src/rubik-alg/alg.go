@@ -31,6 +31,12 @@ const (
 	PLL_Gd_Perm = "R U R' y' R2 u' R U' R' U R' u R2"
 )
 
+//
+// const (
+// 	OLL_1 = "R U2 R2 F R F' U2 R' F R F'"
+// 	OLL_2 = "F R U R' U' F' f R U R' U' f'"
+// )
+
 // ReverseAlg returns the reverse of an algorithm
 func ReverseAlg(alg string) string {
 	alg = cleanAlg(alg)
