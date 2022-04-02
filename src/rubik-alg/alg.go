@@ -254,62 +254,62 @@ func performMove(cube rubik.Cube, move string) rubik.Cube {
 		return cube.Sc()
 
 	case "u":
-		return cube.Ec().U()
+		return cube.Ud()
 	case "u'":
-		return cube.E().Uc()
+		return cube.Udc()
 	case "u2":
-		return cube.U().U().Ec().Ec()
+		return cube.Ud().Ud()
 	case "d":
-		return cube.E().D()
+		return cube.Dd()
 	case "d'":
-		return cube.Ec().Dc()
+		return cube.Ddc()
 	case "d2":
-		return cube.D().D().E().E()
+		return cube.Dd().Dd()
 
 	case "f":
-		return cube.S().F()
+		return cube.Fd()
 	case "f'":
-		return cube.Sc().Fc()
+		return cube.Fdc()
 	case "f2":
-		return cube.S().S().F().F()
+		return cube.Fd().Fd()
 	case "b":
-		return cube.Sc().B()
+		return cube.Bd()
 	case "b'":
-		return cube.S().Bc()
+		return cube.Bdc()
 	case "b2":
-		return cube.Sc().Sc().B().B()
+		return cube.Bd().Bd()
 
 	case "l":
-		return cube.L().M()
+		return cube.Ld()
 	case "l'":
-		return cube.Lc().Mc()
+		return cube.Ldc()
 	case "l2":
-		return cube.L().L().M().M()
+		return cube.Ld().Ld()
 	case "r":
-		return cube.R().Mc()
+		return cube.Rd()
 	case "r'":
-		return cube.Rc().M()
+		return cube.Rdc()
 	case "r2":
-		return cube.R().R().Mc().Mc()
+		return cube.Rd().Rd()
 
 	case "x":
-		return cube.Lc().Mc().R()
+		return cube.Ldc().R()
 	case "x2":
-		return cube.Lc().Mc().R().Lc().Mc().R()
+		return cube.Ldc().R().Ldc().R()
 	case "x'":
-		return cube.L().M().Rc()
+		return cube.Ld().Rc()
 	case "y":
-		return cube.U().Ec().Dc()
+		return cube.Ud().Dc()
 	case "y2":
-		return cube.U().Ec().Dc().U().Ec().Dc()
+		return cube.Ud().Dc().Ud().Dc()
 	case "y'":
-		return cube.Uc().E().D()
+		return cube.Udc().D()
 	case "z":
-		return cube.F().S().Bc()
+		return cube.Fd().Bc()
 	case "z2":
-		return cube.F().S().Bc().F().S().Bc()
+		return cube.Fd().Bc().Fd().Bc()
 	case "z'":
-		return cube.Fc().Sc().B()
+		return cube.Fdc().B()
 
 	default:
 		return cube
