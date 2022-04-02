@@ -1,10 +1,13 @@
 package rubik_alg
 
 import (
-	"fmt"
 	"strings"
 
 	"github.com/hultan/go-rubik/src/rubik"
+)
+
+const (
+	TPerm = "R U R' U' R' F R2 U' R' U' R U R' F'"
 )
 
 // ReverseAlg returns the reverse of an algorithm
@@ -15,10 +18,11 @@ func ReverseAlg(alg string) string {
 
 	for _, move := range moves {
 		move = strings.Trim(move, " ")
+		move = reverseMove(move)
 		if move == "" {
 			continue
 		}
-		reverse = append(reverse, reverseMove(move))
+		reverse = append(reverse, move)
 	}
 
 	for i, j := 0, len(reverse)-1; i < j; i, j = i+1, j-1 {
@@ -36,16 +40,13 @@ func PerformAlg(cube rubik.Cube, alg string) rubik.Cube {
 
 	for _, move := range moves {
 		move = strings.Trim(move, " ")
-		if move == "" {
-			continue
-		}
 		cube = performMove(cube, move)
 	}
 
 	return cube
 }
 
-// Returns the reverse of the provided move
+// Returns the reverse of the provided move, or an empty string if it is an illegal move
 func reverseMove(move string) string {
 	switch move {
 	case "R":
@@ -55,7 +56,7 @@ func reverseMove(move string) string {
 	case "R'":
 		return "R"
 	case "L":
-		return "L1"
+		return "L'"
 	case "L2":
 		return "L2"
 	case "L'":
@@ -165,11 +166,12 @@ func reverseMove(move string) string {
 		return "z"
 
 	default:
-		panic(fmt.Sprintf("illegal move : %v", move))
+		return ""
 	}
 }
 
 // Performs the provided move on the provided cube, and returns a new cube
+// Illegal moves are ignored, and just returns the cube as it was
 func performMove(cube rubik.Cube, move string) rubik.Cube {
 	switch move {
 	case "R":
@@ -283,11 +285,12 @@ func performMove(cube rubik.Cube, move string) rubik.Cube {
 		return cube.Fc().Sc().B()
 
 	default:
-		panic(fmt.Sprintf("illegal move : %v", move))
+		return cube
 	}
 }
 
 func cleanAlg(alg string) string {
+	alg = strings.Trim(alg, " \t\n\r")
 	alg = strings.Replace(alg, "(", "", -1)
 	alg = strings.Replace(alg, ")", "", -1)
 	alg = strings.Replace(alg, "[", "", -1)
