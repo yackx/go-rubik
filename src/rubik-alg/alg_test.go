@@ -7,7 +7,7 @@ import (
 	"github.com/hultan/go-rubik/src/rubik"
 )
 
-func TestPerformAlg(t *testing.T) {
+func Test_performAlg(t *testing.T) {
 	type args struct {
 		cube rubik.Cube
 		alg  string
@@ -18,14 +18,109 @@ func TestPerformAlg(t *testing.T) {
 		want rubik.Cube
 	}{
 		{
-			name: "T permutation",
-			args: args{rubik.NewSolvedCube(), "(R U R' U') (R' F R2 U') R' U' (R U R' F')"},
-			want: rubik.NewCube("wwwwwwwww ggrgggggg bogrrrrrr rbbbbbbbb orooooooo yyyyyyyyy"),
+			name: "Aa permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Aa_Perm},
+			want: rubik.NewCube("wwwwwwwww ggrgggggg brbrrrrrr obgbbbbbb roooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Ab permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Ab_Perm},
+			want: rubik.NewCube("wwwwwwwww ggbgggggg orgrrrrrr rbrbbbbbb boooooooo yyyyyyyyy"),
+		},
+		{
+			name: "E permutation",
+			args: args{rubik.NewSolvedCube(), PLL_E_Perm},
+			want: rubik.NewCube("wwwwwwwww rgogggggg grbrrrrrr obrbbbbbb bogoooooo yyyyyyyyy"),
+		},
+		{
+			name: "F permutation",
+			args: args{rubik.NewSolvedCube(), PLL_F_Perm},
+			want: rubik.NewCube("wwwwwwwww gbrgggggg brgrrrrrr rgbbbbbbb ooooooooo yyyyyyyyy"),
 		},
 		{
 			name: "H permutation",
-			args: args{rubik.NewSolvedCube(), "M2 U M2 U2 M2 U M2"},
+			args: args{rubik.NewSolvedCube(), PLL_H_Perm},
 			want: rubik.NewCube("wwwwwwwww gbggggggg rorrrrrrr bgbbbbbbb orooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Z permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Z_Perm},
+			want: rubik.NewCube("wwwwwwwww grggggggg rgrrrrrrr bobbbbbbb obooooooo yyyyyyyyy"),
+		},
+		{
+			name: "T permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_T_Perm},
+			want: rubik.NewCube("wwwwwwwww ggrgggggg bogrrrrrr rbbbbbbbb orooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Ja permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Ja_Perm},
+			want: rubik.NewCube("wwwwwwwww ggggggggg rrbrrrrrr oorbbbbbb bbooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Jb permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Jb_Perm},
+			want: rubik.NewCube("wwwwwwwww grrgggggg bggrrrrrr rbbbbbbbb ooooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Na permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Na_Perm},
+			want: rubik.NewCube("wwwwwwwww gbbgggggg orrrrrrrr bggbbbbbb roooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Nb permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Nb_Perm},
+			want: rubik.NewCube("wwwwwwwww bbggggggg rrorrrrrr ggbbbbbbb ooroooooo yyyyyyyyy"),
+		},
+		{
+			name: "Ra permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Ra_Perm},
+			want: rubik.NewCube("wwwwwwggw rrrgggwwg bbbyrryrr ooobbbbbb ggyooooog rroyyyyyy"),
+		},
+		{
+			name: "Rb permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Rb_Perm},
+			want: rubik.NewCube("gwywwwwbb grwgggggg rbbrrrrro rgrwbbbbb woooooooo yyyyyyyyw"),
+		},
+		{
+			name: "Ua permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Ua_Perm},
+			want: rubik.NewCube("wwwwwwwww goggggggg rgrrrrrrr bbbbbbbbb orooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Ub permutation",
+			args: args{rubik.NewSolvedCube(), PLL_Ub_Perm},
+			want: rubik.NewCube("wwwwwwwww grggggggg rorrrrrrr bbbbbbbbb ogooooooo yyyyyyyyy"),
+		},
+		{
+			name: "V permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_V_Perm},
+			want: rubik.NewCube("wwwwwwwww obrrrrrrr brgbbbbbb roooooooo ggbgggggg yyyyyyyyy"),
+		},
+		{
+			name: "Y permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Y_Perm},
+			want: rubik.NewCube("wwwwwwwww ggbgggggg orrrrrrrr bogbbbbbb rbooooooo yyyyyyyyy"),
+		},
+		{
+			name: "Ga permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Ga_Perm},
+			want: rubik.NewCube("wwwwwwwww gbroooooo bgggggggg robrrrrrr orobbbbbb yyyyyyyyy"),
+		},
+		{
+			name: "Gb permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Gb_Perm},
+			want: rubik.NewCube("wwwwwwwww obgrrrrrr rgrbbbbbb boooooooo grbgggggg yyyyyyyyy"),
+		},
+		{
+			name: "Gc permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Gc_Perm},
+			want: rubik.NewCube("wwwwwwwww obgrrrrrr rorbbbbbb brooooooo ggbgggggg yyyyyyyyy"),
+		},
+		{
+			name: "Gd permutation",
+			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Gd_Perm},
+			want: rubik.NewCube("wwwwwwwww gbroooooo boggggggg rrbrrrrrr ogobbbbbb yyyyyyyyy"),
 		},
 	}
 	for _, tt := range tests {
@@ -37,7 +132,7 @@ func TestPerformAlg(t *testing.T) {
 	}
 }
 
-func TestReverseAlg(t *testing.T) {
+func Test_reverseAlg(t *testing.T) {
 	type args struct {
 		alg string
 	}
@@ -46,10 +141,10 @@ func TestReverseAlg(t *testing.T) {
 		args args
 		want string
 	}{
-		{"T permutation", args{"(R U R' U') (R' F R2 U') R' U' (R U R' F')"}, "F R U' R' U R U R2 F' R U R U' R'"},
-		{"Aa permutation", args{"x R' U R' D2 R U' R' D2 R2"}, "R2 D2 R U R' D2 R U' R x'"},
-		{"H permutation", args{"M2 U M2 U2 M2 U M2"}, "M2 U' M2 U2 M2 U' M2"},
-		{"Ua permutation", args{"y2 [R U' R U] R U R U' R' U' R2"}, "R2 U R U R' U' R' U' R' U R' y2"},
+		{"T permutation", args{PLL_T_Perm}, "F R U' R' U R U R2 F' R U R U' R'"},
+		{"Aa permutation", args{PLL_Aa_Perm}, "x R2 D2 R U R' D2 R U' R x'"},
+		{"H permutation", args{PLL_H_Perm}, "M2 U' M2 U2 M2 U' M2"},
+		{"Ua permutation", args{PLL_Ua_Perm}, "R2 U R U R' U' R' U' R' U R'"},
 	}
 
 	for _, tt := range tests {
@@ -325,6 +420,51 @@ func Test_performMove(t *testing.T) {
 			args: args{rubik.NewSolvedCube(), "b'"},
 			want: rubik.NewCube("oooooowww ggggggggg rwwrwwrww bbbbbbbbb yyoyyoyyo yyyrrrrrr"),
 		},
+		{
+			name: "x rotation",
+			args: args{rubik.NewSolvedCube(), "x"},
+			want: rubik.NewCube("ggggggggg yyyyyyyyy rrrrrrrrr wwwwwwwww ooooooooo bbbbbbbbb"),
+		},
+		{
+			name: "x2 rotation",
+			args: args{rubik.NewSolvedCube(), "x2"},
+			want: rubik.NewCube("yyyyyyyyy bbbbbbbbb rrrrrrrrr ggggggggg ooooooooo wwwwwwwww"),
+		},
+		{
+			name: "x' rotation",
+			args: args{rubik.NewSolvedCube(), "x'"},
+			want: rubik.NewCube("bbbbbbbbb wwwwwwwww rrrrrrrrr yyyyyyyyy ooooooooo ggggggggg"),
+		},
+		{
+			name: "y rotation",
+			args: args{rubik.NewSolvedCube(), "y"},
+			want: rubik.NewCube("wwwwwwwww rrrrrrrrr bbbbbbbbb ooooooooo ggggggggg yyyyyyyyy"),
+		},
+		{
+			name: "y2 rotation",
+			args: args{rubik.NewSolvedCube(), "y2"},
+			want: rubik.NewCube("wwwwwwwww bbbbbbbbb ooooooooo ggggggggg rrrrrrrrr yyyyyyyyy"),
+		},
+		{
+			name: "y' rotation",
+			args: args{rubik.NewSolvedCube(), "y'"},
+			want: rubik.NewCube("wwwwwwwww ooooooooo ggggggggg rrrrrrrrr bbbbbbbbb yyyyyyyyy"),
+		},
+		{
+			name: "z rotation",
+			args: args{rubik.NewSolvedCube(), "z"},
+			want: rubik.NewCube("ooooooooo ggggggggg wwwwwwwww bbbbbbbbb yyyyyyyyy rrrrrrrrr"),
+		},
+		{
+			name: "z2 rotation",
+			args: args{rubik.NewSolvedCube(), "z2"},
+			want: rubik.NewCube("yyyyyyyyy ggggggggg ooooooooo bbbbbbbbb rrrrrrrrr wwwwwwwww"),
+		},
+		{
+			name: "z' rotation",
+			args: args{rubik.NewSolvedCube(), "z'"},
+			want: rubik.NewCube("rrrrrrrrr ggggggggg yyyyyyyyy bbbbbbbbb wwwwwwwww ooooooooo"),
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
@@ -403,6 +543,41 @@ func Test_reverseMove(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			if got := reverseMove(tt.args.move); got != tt.want {
 				t.Errorf("reverseMove() = %v, want %v", got, tt.want)
+			}
+		})
+	}
+}
+
+func Test_randomScrambles(t *testing.T) {
+	type args struct {
+		cube rubik.Cube
+		alg  string
+	}
+	tests := []struct {
+		name string
+		args args
+		want rubik.Cube
+	}{
+		{
+			name: "Random scramble 1",
+			args: args{rubik.NewSolvedCube(), "U F' B D R L' B R2 B U2 D2 L B' R L F L' F' L B2 D2 U F2 D R"},
+			want: rubik.NewCube("oobgwboyg ggwogrgrr oryyrwybb oywgbrybb boywowrbr wggyyowwr"),
+		},
+		{
+			name: "Random scramble 2",
+			args: args{rubik.NewSolvedCube(), "D2 L2 F' B' D2 F2 U' D2 L R' F U2 F' B R' D' U L R' B2 R' L' D2 F2 U"},
+			want: rubik.NewCube("oywbwbroy yboggrbrb bygwrywwr rrygbobbg gwggowoyw rgooyowry"),
+		},
+		{
+			name: "Random scramble 3",
+			args: args{rubik.NewSolvedCube(), "L U2 L2 F' L' D' F L D2 L' U F2 B L' B2 U' D L R2 U' R L' U F2 R"},
+			want: rubik.NewCube("wowgwowwy obrwgybwy gygbroory rgrbbwryg bybgoooby orgrygwrb"),
+		},
+	}
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			if got := PerformAlg(tt.args.cube, tt.args.alg); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("PerformAlg() = %v, want %v", got, tt.want)
 			}
 		})
 	}

@@ -7,7 +7,28 @@ import (
 )
 
 const (
-	TPerm = "R U R' U' R' F R2 U' R' U' R U R' F'"
+	PLL_Aa_Perm = "x (R' U R') D2 (R U' R') D2 R2 x'"
+	PLL_Ab_Perm = "x R2 D2 (R U R') D2 (R U' R) x'"
+	PLL_E_Perm  = "z U2 R2 F (R U R' U') (R U R' U') (R U R' U') F' R2 U2 z'"
+	PLL_F_Perm  = "R' U' F' (R U R' U') (R' F R2 U') R' U' (R U R' U R)"
+	PLL_H_Perm  = "M2 U M2 U2 M2 U M2"
+	PLL_Z_Perm  = "M2 U M2 U M' U2 M2 U2 M' U2"
+	PLL_Ja_Perm = "(R' U L') U2 (R U' R' U2) L R U'"
+	PLL_Jb_Perm = "(R U R' F') (R U R' U') (R' F R2 U') R' U'"
+	PLL_T_Perm  = "(R U R' U') (R' F R2 U') R' U' (R U R' F')"
+	PLL_Na_Perm = "(L U' R U2 L' U R') (L U' R U2 L' U R') U"
+	PLL_Nb_Perm = "(R' U L' U2 R U' L) (R' U L' U2 R U' L) U'"
+	PLL_Ra_Perm = "(R U R' F') (R U2' R' U2') (R' F R U) (R U2' R') [U']"
+	PLL_Rb_Perm = "(R' U2 R U2') R' F (R U R' U') R' F' R2 [U']"
+	PLL_Ua_Perm = "R U' R U R U R U' R' U' R2"
+	PLL_Ub_Perm = "R2 U R U R' U' R' U' R' U R'"
+	PLL_V_Perm  = "R' U R' U' y R' F' R2 U' R' U R' F R F"
+	PLL_Y_Perm  = "R2 U' R2 U' R2 U R' F' R U R2 U' R' F R"
+
+	PLL_Ga_Perm = "R2 u R' U R' U' R u' R2 y' R' U R"
+	PLL_Gb_Perm = "L' U' L y L2 u L' U L U' L u' L2"
+	PLL_Gc_Perm = "L2 u' L U' L U L' u L2 y L U' L'"
+	PLL_Gd_Perm = "R U R' y' R2 u' R U' R' U R' u R2"
 )
 
 // ReverseAlg returns the reverse of an algorithm
@@ -272,15 +293,21 @@ func performMove(cube rubik.Cube, move string) rubik.Cube {
 		return cube.R().R().Mc().Mc()
 
 	case "x":
-		return cube.L().M().Rc()
-	case "x'":
 		return cube.Lc().Mc().R()
+	case "x2":
+		return cube.Lc().Mc().R().Lc().Mc().R()
+	case "x'":
+		return cube.L().M().Rc()
 	case "y":
 		return cube.U().Ec().Dc()
+	case "y2":
+		return cube.U().Ec().Dc().U().Ec().Dc()
 	case "y'":
 		return cube.Uc().E().D()
 	case "z":
 		return cube.F().S().Bc()
+	case "z2":
+		return cube.F().S().Bc().F().S().Bc()
 	case "z'":
 		return cube.Fc().Sc().B()
 
