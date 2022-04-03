@@ -122,56 +122,6 @@ func Test_performAlg(t *testing.T) {
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGd},
 			want: rubik.NewCube("wwwwwwwww gbroooooo boggggggg rrbrrrrrr ogobbbbbb yyyyyyyyy"),
 		},
-		{
-			name: "OLL 1",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll1},
-			want: rubik.NewCube("oorbwgrro wwggggggg wwwrrrrrr gwwbbbbbb bwboooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 2",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll2},
-			want: rubik.NewCube("oobbwgorg wwrgggggg wwwrrrrrr rwwbbbbbb bwgoooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 3",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll3},
-			want: rubik.NewCube("obbowgwrr rwbgggggg wworrrrrr wwgbbbbbb wwgoooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 4",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll4},
-			want: rubik.NewCube("worbwrogg bwwgggggg owwrrrrrr gwrbbbbbb bwwoooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 5",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll5},
-			want: rubik.NewCube("woowwbrwb wgogggggg wwgrrrrrr wwgbbbbbb rrboooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 6",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll6},
-			want: rubik.NewCube("rwgwwgwoo bwwgggggg bwwrrrrrr obwbbbbbb grroooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 7",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll7},
-			want: rubik.NewCube("gwwgwwrrb wwogggggg woorrrrrr gbrbbbbbb wwboooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 8",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll8},
-			want: rubik.NewCube("rrgbwwbww rgbgggggg oowrrrrrr owwbbbbbb gwwoooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 9",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll9},
-			want: rubik.NewCube("ggbwwwwro rwwgggggg bbwrrrrrr rwwbbbbbb oogoooooo yyyyyyyyy"),
-		},
-		{
-			name: "OLL 10",
-			args: args{cube: rubik.NewSolvedCube(), alg: Oll10},
-			want: rubik.NewCube("wbbwwrgwo wgggggggg wworrrrrr wwrbbbbbb boroooooo yyyyyyyyy"),
-		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

@@ -36,23 +36,6 @@ const (
 	PllPermGd = "R U R' y' R2 u' R U' R' U R' u R2"
 )
 
-// ------------------------------- //
-// SAMPLE OLL ALGS                 //
-// http://algdb.net/puzzle/333/oll //
-// ------------------------------- //
-const (
-	Oll1  = "R U2 R2 F R F' U2 R' F R F'"
-	Oll2  = "F R U R' U' F' f R U R' U' f'"
-	Oll3  = "f R U R' U' f' U' F R U R' U' F'"
-	Oll4  = "f R U R' U' f' U F R U R' U' F'"
-	Oll5  = "r' U2 R U R' U r"
-	Oll6  = "r U2 R' U' R U' r'"
-	Oll7  = "r U R' U R U2 r'"
-	Oll8  = "r' U' R U' R' U2 r"
-	Oll9  = "R U R' U' R' F R2 U R' U' F'"
-	Oll10 = "R U R' U R' F R F' R U2 R'"
-)
-
 var validMoves = []string{
 	"R ", "R' ", "R2 ", "L ", "L' ", "L2 ",
 	"U ", "U' ", "U2 ", "D ", "D' ", "D2 ",
