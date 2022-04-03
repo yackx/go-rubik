@@ -152,7 +152,7 @@ func TestUc(t *testing.T) {
 	}
 }
 
-func testUUUU(t *testing.T) {
+func TestUUUU(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.U().U().U().U()
 	if !origin.Equals(circle) {
@@ -160,7 +160,7 @@ func testUUUU(t *testing.T) {
 	}
 }
 
-func testUcUcUcUc(t *testing.T) {
+func TestUcUcUcUc(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.Uc().Uc().Uc().Uc()
 	if !origin.Equals(circle) {
@@ -198,7 +198,7 @@ func TestDc(t *testing.T) {
 	}
 }
 
-func testDDDD(t *testing.T) {
+func TestDDDD(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.D().D().D().D()
 	if !origin.Equals(circle) {
@@ -206,7 +206,7 @@ func testDDDD(t *testing.T) {
 	}
 }
 
-func testDcDcDcDc(t *testing.T) {
+func TestDcDcDcDc(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.Dc().Dc().Dc().Dc()
 	if !origin.Equals(circle) {
@@ -244,7 +244,7 @@ func TestLc(t *testing.T) {
 	}
 }
 
-func testLLLL(t *testing.T) {
+func TestLLLL(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.L().L().L().L()
 	if !origin.Equals(circle) {
@@ -252,7 +252,7 @@ func testLLLL(t *testing.T) {
 	}
 }
 
-func testLcLcLcLc(t *testing.T) {
+func TestLcLcLcLc(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.Lc().Lc().Lc().Lc()
 	if !origin.Equals(circle) {
@@ -290,7 +290,7 @@ func TestRc(t *testing.T) {
 	}
 }
 
-func testRRRR(t *testing.T) {
+func TestRRRR(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.R().R().R().R()
 	if !origin.Equals(circle) {
@@ -298,7 +298,7 @@ func testRRRR(t *testing.T) {
 	}
 }
 
-func testRcRcRcRc(t *testing.T) {
+func TestRcRcRcRc(t *testing.T) {
 	origin := NewSolvedCube()
 	circle := origin.Rc().Rc().Rc().Rc()
 	if !origin.Equals(circle) {

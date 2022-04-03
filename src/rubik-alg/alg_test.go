@@ -19,108 +19,158 @@ func Test_performAlg(t *testing.T) {
 	}{
 		{
 			name: "Aa permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Aa_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermAa},
 			want: rubik.NewCube("wwwwwwwww ggrgggggg brbrrrrrr obgbbbbbb roooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ab permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Ab_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermAb},
 			want: rubik.NewCube("wwwwwwwww ggbgggggg orgrrrrrr rbrbbbbbb boooooooo yyyyyyyyy"),
 		},
 		{
 			name: "E permutation",
-			args: args{rubik.NewSolvedCube(), PLL_E_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermE},
 			want: rubik.NewCube("wwwwwwwww rgogggggg grbrrrrrr obrbbbbbb bogoooooo yyyyyyyyy"),
 		},
 		{
 			name: "F permutation",
-			args: args{rubik.NewSolvedCube(), PLL_F_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermF},
 			want: rubik.NewCube("wwwwwwwww gbrgggggg brgrrrrrr rgbbbbbbb ooooooooo yyyyyyyyy"),
 		},
 		{
 			name: "H permutation",
-			args: args{rubik.NewSolvedCube(), PLL_H_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermH},
 			want: rubik.NewCube("wwwwwwwww gbggggggg rorrrrrrr bgbbbbbbb orooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Z permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Z_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermZ},
 			want: rubik.NewCube("wwwwwwwww grggggggg rgrrrrrrr bobbbbbbb obooooooo yyyyyyyyy"),
 		},
 		{
 			name: "T permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_T_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermT},
 			want: rubik.NewCube("wwwwwwwww ggrgggggg bogrrrrrr rbbbbbbbb orooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ja permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Ja_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermJa},
 			want: rubik.NewCube("wwwwwwwww ggggggggg rrbrrrrrr oorbbbbbb bbooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Jb permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Jb_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermJb},
 			want: rubik.NewCube("wwwwwwwww grrgggggg bggrrrrrr rbbbbbbbb ooooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Na permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Na_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermNa},
 			want: rubik.NewCube("wwwwwwwww gbbgggggg orrrrrrrr bggbbbbbb roooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Nb permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Nb_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermNb},
 			want: rubik.NewCube("wwwwwwwww bbggggggg rrorrrrrr ggbbbbbbb ooroooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ra permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Ra_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermRa},
 			want: rubik.NewCube("wwwwwwggw rrrgggwwg bbbyrryrr ooobbbbbb ggyooooog rroyyyyyy"),
 		},
 		{
 			name: "Rb permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Rb_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermRb},
 			want: rubik.NewCube("gwywwwwbb grwgggggg rbbrrrrro rgrwbbbbb woooooooo yyyyyyyyw"),
 		},
 		{
 			name: "Ua permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Ua_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermUa},
 			want: rubik.NewCube("wwwwwwwww goggggggg rgrrrrrrr bbbbbbbbb orooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ub permutation",
-			args: args{rubik.NewSolvedCube(), PLL_Ub_Perm},
+			args: args{rubik.NewSolvedCube(), PllPermUb},
 			want: rubik.NewCube("wwwwwwwww grggggggg rorrrrrrr bbbbbbbbb ogooooooo yyyyyyyyy"),
 		},
 		{
 			name: "V permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_V_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermV},
 			want: rubik.NewCube("wwwwwwwww obrrrrrrr brgbbbbbb roooooooo ggbgggggg yyyyyyyyy"),
 		},
 		{
 			name: "Y permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Y_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermY},
 			want: rubik.NewCube("wwwwwwwww ggbgggggg orrrrrrrr bogbbbbbb rbooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ga permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Ga_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGa},
 			want: rubik.NewCube("wwwwwwwww gbroooooo bgggggggg robrrrrrr orobbbbbb yyyyyyyyy"),
 		},
 		{
 			name: "Gb permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Gb_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGb},
 			want: rubik.NewCube("wwwwwwwww obgrrrrrr rgrbbbbbb boooooooo grbgggggg yyyyyyyyy"),
 		},
 		{
 			name: "Gc permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Gc_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGc},
 			want: rubik.NewCube("wwwwwwwww obgrrrrrr rorbbbbbb brooooooo ggbgggggg yyyyyyyyy"),
 		},
 		{
 			name: "Gd permutation",
-			args: args{cube: rubik.NewSolvedCube(), alg: PLL_Gd_Perm},
+			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGd},
 			want: rubik.NewCube("wwwwwwwww gbroooooo boggggggg rrbrrrrrr ogobbbbbb yyyyyyyyy"),
+		},
+		{
+			name: "OLL 1",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll1},
+			want: rubik.NewCube("oorbwgrro wwggggggg wwwrrrrrr gwwbbbbbb bwboooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 2",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll2},
+			want: rubik.NewCube("oobbwgorg wwrgggggg wwwrrrrrr rwwbbbbbb bwgoooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 3",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll3},
+			want: rubik.NewCube("obbowgwrr rwbgggggg wworrrrrr wwgbbbbbb wwgoooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 4",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll4},
+			want: rubik.NewCube("worbwrogg bwwgggggg owwrrrrrr gwrbbbbbb bwwoooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 5",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll5},
+			want: rubik.NewCube("woowwbrwb wgogggggg wwgrrrrrr wwgbbbbbb rrboooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 6",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll6},
+			want: rubik.NewCube("rwgwwgwoo bwwgggggg bwwrrrrrr obwbbbbbb grroooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 7",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll7},
+			want: rubik.NewCube("gwwgwwrrb wwogggggg woorrrrrr gbrbbbbbb wwboooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 8",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll8},
+			want: rubik.NewCube("rrgbwwbww rgbgggggg oowrrrrrr owwbbbbbb gwwoooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 9",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll9},
+			want: rubik.NewCube("ggbwwwwro rwwgggggg bbwrrrrrr rwwbbbbbb oogoooooo yyyyyyyyy"),
+		},
+		{
+			name: "OLL 10",
+			args: args{cube: rubik.NewSolvedCube(), alg: Oll10},
+			want: rubik.NewCube("wbbwwrgwo wgggggggg wworrrrrr wwrbbbbbb boroooooo yyyyyyyyy"),
 		},
 	}
 	for _, tt := range tests {
@@ -141,10 +191,10 @@ func Test_reverseAlg(t *testing.T) {
 		args args
 		want string
 	}{
-		{"T permutation", args{PLL_T_Perm}, "F R U' R' U R U R2 F' R U R U' R'"},
-		{"Aa permutation", args{PLL_Aa_Perm}, "x R2 D2 R U R' D2 R U' R x'"},
-		{"H permutation", args{PLL_H_Perm}, "M2 U' M2 U2 M2 U' M2"},
-		{"Ua permutation", args{PLL_Ua_Perm}, "R2 U R U R' U' R' U' R' U R'"},
+		{"T permutation", args{PllPermT}, "F R U' R' U R U R2 F' R U R U' R'"},
+		{"Aa permutation", args{PllPermAa}, "x R2 D2 R U R' D2 R U' R x'"},
+		{"H permutation", args{PllPermH}, "M2 U' M2 U2 M2 U' M2"},
+		{"Ua permutation", args{PllPermUa}, "R2 U R U R' U' R' U' R' U R'"},
 	}
 
 	for _, tt := range tests {
@@ -580,5 +630,14 @@ func Test_randomScrambles(t *testing.T) {
 				t.Errorf("PerformAlg() = %v, want %v", got, tt.want)
 			}
 		})
+	}
+}
+
+func Test_GetScrambledCube(t *testing.T) {
+	for i := 0; i < 10; i++ {
+		scrambled, alg := GetScrambledCube()
+		if scrambled.IsSolved() {
+			t.Error("Scrambled cube should not be solved : ", alg)
+		}
 	}
 }

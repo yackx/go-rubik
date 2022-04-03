@@ -50,13 +50,13 @@ by Harpreet Kaur.
 
 Contains the cube implementation, and functions for :
 
-* Normal moves : R,R',L,L',U,U',D,D',F,F',B,B'
+* Normal moves : R, R', L, L', U, U', D, D', F, F', B, B'
     - Called R(), Rc()... 
-* Slice moves : M,M',S,S',E,E'
+* Slice moves : M, M', S, S', E, E'
     - Called M(), Mc()...
-* Double moves : r,r',l,l',u,u',d,d',f,f',b,b'
+* Double moves : r, r', l, l', u, u', d, d', f, f', b, b'
     - Called Rd(), Rdc()...
-* Rotation moves : x,x',y,y',z,z'
+* Rotation moves : x, x', y, y', z, z'
     - Called X(), Xc()...
 
 It also contains a naive solver.
@@ -65,16 +65,21 @@ It also contains a naive solver.
 
 Contains functions for performing and reversing algorithms. Both functions ignore parentheses and brackets. It also contains tests for performing and reversing algorithms.
 
+THe package can also return a scrambled cube, with the `GetScrambledCube` function. 
+
 Example using the `PerformAlg` function:
-
 ```go
-rubik-alg.PerformAlg(cube, "(R U R' U') (R' F R2 U') R' U' (R U R' F')")
+// Perform a T permutation
+cube := PerformAlg(cube, "(R U R' U') (R' F R2 U') R' U' (R U R' F')")
+fmt.Println(cube) // Prints : "wwwwwwwww ggrgggggg bogrrrrrr rbbbbbbbb orooooooo yyyyyyyyy"
 ```
-
-
 You can reverse algorithms using the `ReverseAlg` function:
-
 ```go
-s := rubik-alg.ReverseAlg("(R U R' U') (R' F R2 U') R' U' (R U R' F')")
-fmt.Println(s) // Prints "F R U' R' U R U R2 F' R U R U' R'"
+alg := ReverseAlg("(R U R' U') (R' F R2 U') R' U' (R U R' F')")
+fmt.Println(alg) // Prints "F R U' R' U R U R2 F' R U R U' R'"
+```
+Get a scrambled cube by using the `GetScrambledCube` function:
+```go
+cube, alg := GetScrambledCube()
+fmt.Println(cube, alg)
 ```

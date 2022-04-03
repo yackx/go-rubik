@@ -1,41 +1,82 @@
 package rubik_alg
 
 import (
+	"math/rand"
 	"strings"
+	"time"
 
 	"github.com/hultan/go-rubik/src/rubik"
 )
 
+// ------------------------------- //
+// SAMPLE PLL ALGS                 //
+// http://algdb.net/puzzle/333/pll //
+// ------------------------------- //
 const (
-	PLL_Aa_Perm = "x (R' U R') D2 (R U' R') D2 R2 x'"
-	PLL_Ab_Perm = "x R2 D2 (R U R') D2 (R U' R) x'"
-	PLL_E_Perm  = "z U2 R2 F (R U R' U') (R U R' U') (R U R' U') F' R2 U2 z'"
-	PLL_F_Perm  = "R' U' F' (R U R' U') (R' F R2 U') R' U' (R U R' U R)"
-	PLL_H_Perm  = "M2 U M2 U2 M2 U M2"
-	PLL_Z_Perm  = "M2 U M2 U M' U2 M2 U2 M' U2"
-	PLL_Ja_Perm = "(R' U L') U2 (R U' R' U2) L R U'"
-	PLL_Jb_Perm = "(R U R' F') (R U R' U') (R' F R2 U') R' U'"
-	PLL_T_Perm  = "(R U R' U') (R' F R2 U') R' U' (R U R' F')"
-	PLL_Na_Perm = "(L U' R U2 L' U R') (L U' R U2 L' U R') U"
-	PLL_Nb_Perm = "(R' U L' U2 R U' L) (R' U L' U2 R U' L) U'"
-	PLL_Ra_Perm = "(R U R' F') (R U2' R' U2') (R' F R U) (R U2' R') [U']"
-	PLL_Rb_Perm = "(R' U2 R U2') R' F (R U R' U') R' F' R2 [U']"
-	PLL_Ua_Perm = "R U' R U R U R U' R' U' R2"
-	PLL_Ub_Perm = "R2 U R U R' U' R' U' R' U R'"
-	PLL_V_Perm  = "R' U R' U' y R' F' R2 U' R' U R' F R F"
-	PLL_Y_Perm  = "R2 U' R2 U' R2 U R' F' R U R2 U' R' F R"
-
-	PLL_Ga_Perm = "R2 u R' U R' U' R u' R2 y' R' U R"
-	PLL_Gb_Perm = "L' U' L y L2 u L' U L U' L u' L2"
-	PLL_Gc_Perm = "L2 u' L U' L U L' u L2 y L U' L'"
-	PLL_Gd_Perm = "R U R' y' R2 u' R U' R' U R' u R2"
+	PllPermAa = "x (R' U R') D2 (R U' R') D2 R2 x'"
+	PllPermAb = "x R2 D2 (R U R') D2 (R U' R) x'"
+	PllPermE  = "z U2 R2 F (R U R' U') (R U R' U') (R U R' U') F' R2 U2 z'"
+	PllPermF  = "R' U' F' (R U R' U') (R' F R2 U') R' U' (R U R' U R)"
+	PllPermH  = "M2 U M2 U2 M2 U M2"
+	PllPermZ  = "M2 U M2 U M' U2 M2 U2 M' U2"
+	PllPermJa = "(R' U L') U2 (R U' R' U2) L R U'"
+	PllPermJb = "(R U R' F') (R U R' U') (R' F R2 U') R' U'"
+	PllPermT  = "(R U R' U') (R' F R2 U') R' U' (R U R' F')"
+	PllPermNa = "(L U' R U2 L' U R') (L U' R U2 L' U R') U"
+	PllPermNb = "(R' U L' U2 R U' L) (R' U L' U2 R U' L) U'"
+	PllPermRa = "(R U R' F') (R U2' R' U2') (R' F R U) (R U2' R') [U']"
+	PllPermRb = "(R' U2 R U2') R' F (R U R' U') R' F' R2 [U']"
+	PllPermUa = "R U' R U R U R U' R' U' R2"
+	PllPermUb = "R2 U R U R' U' R' U' R' U R'"
+	PllPermV  = "R' U R' U' y R' F' R2 U' R' U R' F R F"
+	PllPermY  = "R2 U' R2 U' R2 U R' F' R U R2 U' R' F R"
+	PllPermGa = "R2 u R' U R' U' R u' R2 y' R' U R"
+	PllPermGb = "L' U' L y L2 u L' U L U' L u' L2"
+	PllPermGc = "L2 u' L U' L U L' u L2 y L U' L'"
+	PllPermGd = "R U R' y' R2 u' R U' R' U R' u R2"
 )
 
-//
-// const (
-// 	OLL_1 = "R U2 R2 F R F' U2 R' F R F'"
-// 	OLL_2 = "F R U R' U' F' f R U R' U' f'"
-// )
+// ------------------------------- //
+// SAMPLE OLL ALGS                 //
+// http://algdb.net/puzzle/333/oll //
+// ------------------------------- //
+const (
+	Oll1  = "R U2 R2 F R F' U2 R' F R F'"
+	Oll2  = "F R U R' U' F' f R U R' U' f'"
+	Oll3  = "f R U R' U' f' U' F R U R' U' F'"
+	Oll4  = "f R U R' U' f' U F R U R' U' F'"
+	Oll5  = "r' U2 R U R' U r"
+	Oll6  = "r U2 R' U' R U' r'"
+	Oll7  = "r U R' U R U2 r'"
+	Oll8  = "r' U' R U' R' U2 r"
+	Oll9  = "R U R' U' R' F R2 U R' U' F'"
+	Oll10 = "R U R' U R' F R F' R U2 R'"
+)
+
+var validMoves = []string{
+	"R ", "R' ", "R2 ", "L ", "L' ", "L2 ",
+	"U ", "U' ", "U2 ", "D ", "D' ", "D2 ",
+	"F ", "F' ", "F2 ", "B ", "B' ", "B2 ",
+	"r ", "r' ", "r2 ", "l ", "l' ", "l2 ",
+	"u ", "u' ", "u2 ", "d ", "d' ", "d2 ",
+	"f ", "f' ", "f2 ", "b ", "b' ", "b2 ",
+	"M ", "M' ", "M2 ", "E ", "E' ", "E2 ", "S ", "S' ", "S2 ",
+	"x ", "x' ", "x2 ", "y ", "y' ", "y2 ", "z ", "z' ", "z2 ",
+}
+
+// GetScrambledCube : Get a scrambled sube
+func GetScrambledCube() (rubik.Cube, string) {
+	alg := ""
+	rand.Seed(time.Now().UnixNano())
+
+	// Create a valid scramble
+	for i := 0; i < 30; i++ {
+		a := rand.Intn(len(validMoves))
+		alg += validMoves[a]
+	}
+
+	return PerformAlg(rubik.NewSolvedCube(), alg), alg
+}
 
 // ReverseAlg returns the reverse of an algorithm
 func ReverseAlg(alg string) string {
