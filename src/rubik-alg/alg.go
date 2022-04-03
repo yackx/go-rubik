@@ -75,15 +75,18 @@ func GetScrambledCube() (rubik.Cube, string) {
 		alg += validMoves[a]
 	}
 
-	return PerformAlg(rubik.NewSolvedCube(), alg), alg
+	return ExecuteAlg(rubik.NewSolvedCube(), alg), alg
 }
 
 // ReverseAlg returns the reverse of an algorithm
 func ReverseAlg(alg string) string {
-	alg = cleanAlg(alg)
-	moves := strings.Split(alg, " ")
 	var reverse []string
 
+	// Remove ():s and []:s
+	alg = cleanAlg(alg)
+
+	// Split up alg, reverse move, and copy to a slice
+	moves := strings.Split(alg, " ")
 	for _, move := range moves {
 		move = strings.Trim(move, " ")
 		move = reverseMove(move)
@@ -93,24 +96,29 @@ func ReverseAlg(alg string) string {
 		reverse = append(reverse, move)
 	}
 
+	// Reverse the slice
 	for i, j := 0, len(reverse)-1; i < j; i, j = i+1, j-1 {
 		reverse[i], reverse[j] = reverse[j], reverse[i]
 	}
 
+	// Return the reverse alg
 	return strings.Join(reverse, " ")
 }
 
-// PerformAlg performs the provided algorithm on the provided cube,
+// ExecuteAlg executes the provided algorithm on the provided cube,
 // and returns a new cube.
-func PerformAlg(cube rubik.Cube, alg string) rubik.Cube {
+func ExecuteAlg(cube rubik.Cube, alg string) rubik.Cube {
+	// Remove ():s and []:s
 	alg = cleanAlg(alg)
-	moves := strings.Split(alg, " ")
 
+	// Split up alg, and execute moves
+	moves := strings.Split(alg, " ")
 	for _, move := range moves {
 		move = strings.Trim(move, " ")
-		cube = performMove(cube, move)
+		cube = executeMove(cube, move)
 	}
 
+	// Return the new cube
 	return cube
 }
 
@@ -234,13 +242,14 @@ func reverseMove(move string) string {
 		return "z"
 
 	default:
+		// Invalid moves are ignored
 		return ""
 	}
 }
 
 // Performs the provided move on the provided cube, and returns a new cube
 // Illegal moves are ignored, and just returns the cube as it was
-func performMove(cube rubik.Cube, move string) rubik.Cube {
+func executeMove(cube rubik.Cube, move string) rubik.Cube {
 	switch move {
 	case "R":
 		return cube.R()
@@ -359,10 +368,12 @@ func performMove(cube rubik.Cube, move string) rubik.Cube {
 		return cube.Fdc().B()
 
 	default:
+		// Invalid moves are ignored
 		return cube
 	}
 }
 
+// cleanAlg removes spaces, enter, tabs, () and []
 func cleanAlg(alg string) string {
 	alg = strings.Trim(alg, " \t\n\r")
 	alg = strings.Replace(alg, "(", "", -1)

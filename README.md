@@ -1,8 +1,8 @@
 # Rubik's Cube in go-lang
 
-Thoroughly-tested representation of the Rubik's Cube in `go-lang`. A naive and limited BFS solver is provided. It contains functions for all normal moves, slice moves, double moves and cube rotations.
+Thoroughly-tested package, called `Rubik`, that is a representation of the Rubik's Cube in `go-lang`. A naive and limited BFS solver is provided. It contains functions for all normal moves, slice moves, double moves and cube rotations.
 
-It also contains a package that can execute algorithms and reverse algorithms.
+It also contains a package `Rubik-alg` that can execute algorithms and reverse algorithms. `Rubik-alg` can also scramble cubes.
 
 ## The Cube
 
@@ -44,12 +44,16 @@ See [better algorithms](https://en.wikipedia.org/wiki/Optimal_solutions_for_Rubi
 [Algorithms for solving the Rubik's cube - Harpreet Kaur](HarpreetKaur.pdf)
 by Harpreet Kaur.
 
-## PROJECTS
+## PACKAGES
 
 ### Rubik
 
 Contains the cube implementation, and functions for :
 
+* Create a solved cube
+* Check if the cube solved
+* Check if a cube equals another cube
+* Copy a cube
 * Normal moves : R, R', L, L', U, U', D, D', F, F', B, B'
     - Called R(), Rc()... 
 * Slice moves : M, M', S, S', E, E'
@@ -63,9 +67,17 @@ It also contains a naive solver.
 
 ### Rubik-alg
 
-Contains functions for performing and reversing algorithms. Both functions ignore parentheses and brackets. It also contains tests for performing and reversing algorithms.
+Contains functions for :
 
-THe package can also return a scrambled cube, with the `GetScrambledCube` function. 
+* Execute an algorithm, ex "F' U' x L U' R d2 S'".
+* Reversing an algorithms, ex "S d2 R' U L' x' U F".
+* Get a scrambled cube, and the scramble algorithm.
+
+Parentheses and brackets in the algorithms are ignored.
+
+Tests are included for all public methods.
+
+#### Examples using `Rubik-alg`
 
 Example using the `PerformAlg` function:
 ```go

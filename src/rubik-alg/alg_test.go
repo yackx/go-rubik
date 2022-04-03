@@ -175,8 +175,8 @@ func Test_performAlg(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := PerformAlg(tt.args.cube, tt.args.alg); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("PerformAlg() = %v, want %v", got, tt.want)
+			if got := ExecuteAlg(tt.args.cube, tt.args.alg); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("ExecuteAlg() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -518,8 +518,8 @@ func Test_performMove(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := performMove(tt.args.cube, tt.args.move); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("performMove() = %v, want %v", got, tt.want)
+			if got := executeMove(tt.args.cube, tt.args.move); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("executeMove() = %v, want %v", got, tt.want)
 			}
 		})
 	}
@@ -626,8 +626,8 @@ func Test_randomScrambles(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := PerformAlg(tt.args.cube, tt.args.alg); !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("PerformAlg() = %v, want %v", got, tt.want)
+			if got := ExecuteAlg(tt.args.cube, tt.args.alg); !reflect.DeepEqual(got, tt.want) {
+				t.Errorf("ExecuteAlg() = %v, want %v", got, tt.want)
 			}
 		})
 	}
