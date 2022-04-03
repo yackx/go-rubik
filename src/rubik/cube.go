@@ -1,5 +1,8 @@
 // ------------------------------------------------------------ //
-// THIS CODE WAS WRITTEN BY YACKX. SLICE MOVES ADDED BY HULTAN. //
+// THIS CODE WAS WRITTEN BY YACKX.                              //
+//                                                              //
+// SLICE MOVES, DOUBLE MOVES AND ROTATIONS ADDED BY HULTAN.     //
+//                                                              //
 // See yackx/go-rubik : https://github.com/yackx/go-rubik	    //
 // ------------------------------------------------------------ //
 
@@ -27,23 +30,23 @@ const (
 type Move string
 
 var Moves = []Move{
-	UP, UP_COUNTER, DOWN, DOWN_COUNTER, LEFT, LEFT_COUNTER,
-	RIGHT, RIGHT_COUNTER, FRONT, FRONT_COUNTER, BACK, BACK_COUNTER,
+	Up, UpCounter, Down, DownCounter, Left, LeftCounter,
+	Right, RightCounter, Front, FrontCounter, Back, BackCounter,
 }
 
 const (
-	UP            = "U"
-	UP_COUNTER    = "U'"
-	DOWN          = "D"
-	DOWN_COUNTER  = "D'"
-	LEFT          = "L"
-	LEFT_COUNTER  = "L'"
-	RIGHT         = "R"
-	RIGHT_COUNTER = "R'"
-	FRONT         = "F"
-	FRONT_COUNTER = "F'"
-	BACK          = "B"
-	BACK_COUNTER  = "B'"
+	Up           = "U"
+	UpCounter    = "U'"
+	Down         = "D"
+	DownCounter  = "D'"
+	Left         = "L"
+	LeftCounter  = "L'"
+	Right        = "R"
+	RightCounter = "R'"
+	Front        = "F"
+	FrontCounter = "F'"
+	Back         = "B"
+	BackCounter  = "B'"
 )
 
 // See Cube.pdf for an illustrated version.
@@ -151,29 +154,29 @@ func (cube Cube) Copy() Cube {
 // Turn the cube using the given move, and return a new Cube.
 func (cube Cube) Turn(move Move) Cube {
 	switch move {
-	case UP:
+	case Up:
 		return cube.U()
-	case UP_COUNTER:
+	case UpCounter:
 		return cube.Uc()
-	case DOWN:
+	case Down:
 		return cube.D()
-	case DOWN_COUNTER:
+	case DownCounter:
 		return cube.Dc()
-	case LEFT:
+	case Left:
 		return cube.L()
-	case LEFT_COUNTER:
+	case LeftCounter:
 		return cube.Lc()
-	case RIGHT:
+	case Right:
 		return cube.R()
-	case RIGHT_COUNTER:
+	case RightCounter:
 		return cube.Rc()
-	case FRONT:
+	case Front:
 		return cube.F()
-	case FRONT_COUNTER:
+	case FrontCounter:
 		return cube.Fc()
-	case BACK:
+	case Back:
 		return cube.B()
-	case BACK_COUNTER:
+	case BackCounter:
 		return cube.Bc()
 	default:
 		panic("Unknown move: " + move)
