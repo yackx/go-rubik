@@ -75,12 +75,12 @@ func Test_performAlg(t *testing.T) {
 		{
 			name: "Ra permutation",
 			args: args{rubik.NewSolvedCube(), PllPermRa},
-			want: rubik.NewCube("wwwwwwggw rrrgggwwg bbbyrryrr ooobbbbbb ggyooooog rroyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww bgogggggg gogrrrrrr rrbbbbbbb obroooooo yyyyyyyyy"),
 		},
 		{
 			name: "Rb permutation",
 			args: args{rubik.NewSolvedCube(), PllPermRb},
-			want: rubik.NewCube("gwywwwwbb grwgggggg rbbrrrrro rgrwbbbbb woooooooo yyyyyyyyw"),
+			want: rubik.NewCube("wwwwwwwww rgbgggggg obrrrrrrr boobbbbbb grgoooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ua permutation",
@@ -95,7 +95,7 @@ func Test_performAlg(t *testing.T) {
 		{
 			name: "V permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermV},
-			want: rubik.NewCube("wwwwwwwww obrrrrrrr brgbbbbbb roooooooo ggbgggggg yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww ggbgggggg obrrrrrrr brgbbbbbb roooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Y permutation",
@@ -105,22 +105,22 @@ func Test_performAlg(t *testing.T) {
 		{
 			name: "Ga permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGa},
-			want: rubik.NewCube("wwwwwwwww gbroooooo bgggggggg robrrrrrr orobbbbbb yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww bgggggggg robrrrrrr orobbbbbb gbroooooo yyyyyyyyy"),
 		},
 		{
 			name: "Gb permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGb},
-			want: rubik.NewCube("wwwwwwwww obgrrrrrr rgrbbbbbb boooooooo grbgggggg yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww grbgggggg obgrrrrrr rgrbbbbbb boooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Gc permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGc},
-			want: rubik.NewCube("wwwwwwwww obgrrrrrr rorbbbbbb brooooooo ggbgggggg yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww ggbgggggg obgrrrrrr rorbbbbbb brooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Gd permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGd},
-			want: rubik.NewCube("wwwwwwwww gbroooooo boggggggg rrbrrrrrr ogobbbbbb yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww boggggggg rrbrrrrrr ogobbbbbb gbroooooo yyyyyyyyy"),
 		},
 	}
 	for _, tt := range tests {
