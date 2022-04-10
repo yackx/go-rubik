@@ -13,27 +13,27 @@ import (
 // http://algdb.net/puzzle/333/pll //
 // ------------------------------- //
 const (
-	PllPermAa = "x (R' U R') D2 (R U' R') D2 R2 x'"
-	PllPermAb = "x R2 D2 (R U R') D2 (R U' R) x'"
+	PllPermAa = "x' (R' U R') D2 (R U' R') D2 R2 x"
+	PllPermAb = "x' R2 D2 (R U R') D2 (R U' R) x"
 	PllPermE  = "z U2 R2 F (R U R' U') (R U R' U') (R U R' U') F' R2 U2 z'"
 	PllPermF  = "R' U' F' (R U R' U') (R' F R2 U') R' U' (R U R' U R)"
-	PllPermGa = "R2 u R' U R' U' R u' R2 y' R' U R y"
-	PllPermGb = "L' U' L y L2 u L' U L U' L u' L2 y'"
-	PllPermGc = "L2 u' L U' L U L' u L2 y L U' L' y'"
-	PllPermGd = "R U R' y' R2 u' R U' R' U R' u R2 y"
-	PllPermH  = "M2 U M2 U2 M2 U M2"
+	PllPermGa = "R2 u R' U R' U' R u' R2 y' R' U R"
+	PllPermGb = "L' U' L y L2 u L' U L U' L u' L2"
+	PllPermGc = "L2 u' L U' L U L' u L2 y L U' L'"
+	PllPermGd = "R U R' y' R2 u' R U' R' U R' u R2"
+	PllPermH  = "M2' U M2' U2 M2' U M2'"
 	PllPermJa = "(R' U L') U2 (R U' R' U2) L R U'"
 	PllPermJb = "(R U R' F') (R U R' U') (R' F R2 U') R' U'"
 	PllPermT  = "(R U R' U') (R' F R2 U') R' U' (R U R' F')"
 	PllPermNa = "(L U' R U2 L' U R') (L U' R U2 L' U R') U"
 	PllPermNb = "(R' U L' U2 R U' L) (R' U L' U2 R U' L) U'"
-	PllPermRa = "L U2 L' U2 L F' L' U' L U L F L2"
-	PllPermRb = "R' U2 R U2 R' F R U R' U' R' F' R2"
+	PllPermRa = "L U2 L' U2 L F' L' U' L U L F L2 U"
+	PllPermRb = "R' U2 R U2 R' F R U R' U' R' F' R2 U'"
 	PllPermUa = "R U' R U R U R U' R' U' R2"
 	PllPermUb = "R2 U R U R' U' R' U' R' U R'"
 	PllPermV  = "R' U R' U' y R' F' R2 U' R' U R' F R F y'"
 	PllPermY  = "R2 U' R2 U' R2 U R' F' R U R2 U' R' F R"
-	PllPermZ  = "M2 U M2 U M' U2 M2 U2 M' U2"
+	PllPermZ  = "M2' U M2' U M' U2 M2' U2 M' U2"
 )
 
 var validMoves = []string{
