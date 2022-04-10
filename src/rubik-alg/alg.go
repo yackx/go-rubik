@@ -110,61 +110,79 @@ func reverseMove(move string) string {
 	switch move {
 	case "R":
 		return "R'"
-	case "R2":
-		return "R2"
 	case "R'":
 		return "R"
+	case "R2":
+		return "R2"
+	case "R2'":
+		return "R2'"
 	case "L":
 		return "L'"
-	case "L2":
-		return "L2"
 	case "L'":
 		return "L"
+	case "L2":
+		return "L2"
+	case "L2'":
+		return "L2'"
 
 	case "U":
 		return "U'"
-	case "U2":
-		return "U2"
 	case "U'":
 		return "U"
+	case "U2":
+		return "U2"
+	case "U2'":
+		return "U2'"
 	case "D":
 		return "D'"
-	case "D2":
-		return "D2"
 	case "D'":
 		return "D"
+	case "D2":
+		return "D2"
+	case "D2'":
+		return "D2'"
 
 	case "F":
 		return "F'"
-	case "F2":
-		return "F2"
 	case "F'":
 		return "F"
+	case "F2":
+		return "F2"
+	case "F2'":
+		return "F2'"
 	case "B":
 		return "B'"
-	case "B2":
-		return "B2"
 	case "B'":
 		return "B"
+	case "B2":
+		return "B2"
+	case "B2'":
+		return "B2'"
 
 	case "M":
 		return "M'"
-	case "M2":
-		return "M2"
 	case "M'":
 		return "M"
+	case "M2":
+		return "M2"
+	case "M2'":
+		return "M2'"
 	case "E":
 		return "E'"
-	case "E2":
-		return "E2"
 	case "E'":
 		return "E"
+	case "E2":
+		return "E2"
+	case "E2'":
+		return "E2'"
 	case "S":
 		return "S'"
-	case "S2":
-		return "S2"
 	case "S'":
 		return "S"
+	case "S2":
+		return "S2"
+	case "S2'":
+		return "S2'"
 
 	case "u":
 		return "u'"
@@ -172,12 +190,16 @@ func reverseMove(move string) string {
 		return "u"
 	case "u2":
 		return "u2"
+	case "u2'":
+		return "u2'"
 	case "d":
 		return "d'"
 	case "d'":
 		return "d"
 	case "d2":
 		return "d2"
+	case "d2'":
+		return "d2'"
 
 	case "f":
 		return "f'"
@@ -185,12 +207,16 @@ func reverseMove(move string) string {
 		return "f"
 	case "f2":
 		return "f2"
+	case "f2'":
+		return "f2'"
 	case "b":
 		return "b'"
 	case "b'":
 		return "b"
 	case "b2":
 		return "b2"
+	case "b2'":
+		return "b2'"
 
 	case "l":
 		return "l'"
@@ -198,29 +224,39 @@ func reverseMove(move string) string {
 		return "l"
 	case "l2":
 		return "l2"
+	case "l2'":
+		return "l2'"
 	case "r":
 		return "r'"
 	case "r'":
 		return "r"
 	case "r2":
 		return "r2"
+	case "r2'":
+		return "r2'"
 
 	case "x":
 		return "x'"
 	case "x2":
 		return "x2"
+	case "x2'":
+		return "x2'"
 	case "x'":
 		return "x"
 	case "y":
 		return "y'"
 	case "y2":
 		return "y2"
+	case "y2'":
+		return "y2'"
 	case "y'":
 		return "y"
 	case "z":
 		return "z'"
 	case "z2":
 		return "z2"
+	case "z2'":
+		return "z2'"
 	case "z'":
 		return "z"
 
@@ -236,58 +272,58 @@ func executeMove(cube rubik.Cube, move string) rubik.Cube {
 	switch move {
 	case "R":
 		return cube.R()
-	case "R2":
+	case "R2", "R2'":
 		return cube.R().R()
 	case "R'":
 		return cube.Rc()
 	case "L":
 		return cube.L()
-	case "L2":
+	case "L2", "L2'":
 		return cube.L().L()
 	case "L'":
 		return cube.Lc()
 
 	case "U":
 		return cube.U()
-	case "U2":
+	case "U2", "U2'":
 		return cube.U().U()
 	case "U'":
 		return cube.Uc()
 	case "D":
 		return cube.D()
-	case "D2":
+	case "D2", "D2'":
 		return cube.D().D()
 	case "D'":
 		return cube.Dc()
 
 	case "F":
 		return cube.F()
-	case "F2":
+	case "F2", "F2'":
 		return cube.F().F()
 	case "F'":
 		return cube.Fc()
 	case "B":
 		return cube.B()
-	case "B2":
+	case "B2", "B2'":
 		return cube.B().B()
 	case "B'":
 		return cube.Bc()
 
 	case "M":
 		return cube.M()
-	case "M2":
+	case "M2", "M2'":
 		return cube.M().M()
 	case "M'":
 		return cube.Mc()
 	case "E":
 		return cube.E()
-	case "E2":
+	case "E2", "E2'":
 		return cube.E().E()
 	case "E'":
 		return cube.Ec()
 	case "S":
 		return cube.S()
-	case "S2":
+	case "S2", "S2'":
 		return cube.S().S()
 	case "S'":
 		return cube.Sc()
@@ -296,56 +332,56 @@ func executeMove(cube rubik.Cube, move string) rubik.Cube {
 		return cube.Ud()
 	case "u'":
 		return cube.Udc()
-	case "u2":
+	case "u2", "u2'":
 		return cube.Ud().Ud()
 	case "d":
 		return cube.Dd()
 	case "d'":
 		return cube.Ddc()
-	case "d2":
+	case "d2", "d2'":
 		return cube.Dd().Dd()
 
 	case "f":
 		return cube.Fd()
 	case "f'":
 		return cube.Fdc()
-	case "f2":
+	case "f2", "f2'":
 		return cube.Fd().Fd()
 	case "b":
 		return cube.Bd()
 	case "b'":
 		return cube.Bdc()
-	case "b2":
+	case "b2", "b2'":
 		return cube.Bd().Bd()
 
 	case "l":
 		return cube.Ld()
 	case "l'":
 		return cube.Ldc()
-	case "l2":
+	case "l2", "l2'":
 		return cube.Ld().Ld()
 	case "r":
 		return cube.Rd()
 	case "r'":
 		return cube.Rdc()
-	case "r2":
+	case "r2", "r2'":
 		return cube.Rd().Rd()
 
 	case "x":
 		return cube.Ldc().R()
-	case "x2":
+	case "x2", "x2'":
 		return cube.Ldc().R().Ldc().R()
 	case "x'":
 		return cube.Ld().Rc()
 	case "y":
 		return cube.Ud().Dc()
-	case "y2":
+	case "y2", "y2'":
 		return cube.Ud().Dc().Ud().Dc()
 	case "y'":
 		return cube.Udc().D()
 	case "z":
 		return cube.Fd().Bc()
-	case "z2":
+	case "z2", "z2'":
 		return cube.Fd().Bc().Fd().Bc()
 	case "z'":
 		return cube.Fdc().B()
