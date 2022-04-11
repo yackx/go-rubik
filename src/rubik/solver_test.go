@@ -11,12 +11,12 @@ type testCase struct {
 
 func TestSolver(t *testing.T) {
 	testCases := []*testCase{
-		&testCase{NewSolvedCube().F(), []Move{FRONT_COUNTER}},
-		&testCase{NewSolvedCube().Fc(), []Move{FRONT}},
-		&testCase{NewSolvedCube().U(), []Move{UP_COUNTER}},
-		&testCase{NewSolvedCube().F().U(), []Move{UP_COUNTER, FRONT_COUNTER}},
-		&testCase{NewSolvedCube().U().U(), []Move{UP, UP}},
-		&testCase{NewSolvedCube().F().U().R(), []Move{RIGHT_COUNTER, UP_COUNTER, FRONT_COUNTER}},
+		&testCase{NewSolvedCube().F(), []Move{FrontCounter}},
+		&testCase{NewSolvedCube().Fc(), []Move{Front}},
+		&testCase{NewSolvedCube().U(), []Move{UpCounter}},
+		&testCase{NewSolvedCube().F().U(), []Move{UpCounter, FrontCounter}},
+		&testCase{NewSolvedCube().U().U(), []Move{Up, Up}},
+		&testCase{NewSolvedCube().F().U().R(), []Move{RightCounter, UpCounter, FrontCounter}},
 
 		// Too complex for current naive solver
 		// &testCase{NewSolvedCube().F().R().R().U().L(), []Move{RIGHT_COUNTER, UP_COUNTER, FRONT_COUNTER}},
