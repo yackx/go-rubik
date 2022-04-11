@@ -20,12 +20,12 @@ func Test_performAlg(t *testing.T) {
 		{
 			name: "Aa permutation",
 			args: args{rubik.NewSolvedCube(), PllPermAa},
-			want: rubik.NewCube("wwwwwwwww ggrgggggg brbrrrrrr obgbbbbbb roooooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww ggggggbgo rrrrrrgrg bbbbbbrbb oooooooor yyyyyyyyy"),
 		},
 		{
 			name: "Ab permutation",
 			args: args{rubik.NewSolvedCube(), PllPermAb},
-			want: rubik.NewCube("wwwwwwwww ggbgggggg orgrrrrrr rbrbbbbbb boooooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww ggggggrgr rrrrrrbro bbbbbbgbb oooooooog yyyyyyyyy"),
 		},
 		{
 			name: "E permutation",
@@ -75,12 +75,12 @@ func Test_performAlg(t *testing.T) {
 		{
 			name: "Ra permutation",
 			args: args{rubik.NewSolvedCube(), PllPermRa},
-			want: rubik.NewCube("wwwwwwwww bgogggggg gogrrrrrr rrbbbbbbb obroooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww goggggggg rrbrrrrrr obrbbbbbb bgooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Rb permutation",
 			args: args{rubik.NewSolvedCube(), PllPermRb},
-			want: rubik.NewCube("wwwwwwwww rgbgggggg obrrrrrrr boobbbbbb grgoooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww grggggggg rgbrrrrrr obrbbbbbb boooooooo yyyyyyyyy"),
 		},
 		{
 			name: "Ua permutation",
@@ -105,22 +105,22 @@ func Test_performAlg(t *testing.T) {
 		{
 			name: "Ga permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGa},
-			want: rubik.NewCube("wwwwwwwww bgggggggg robrrrrrr orobbbbbb gbroooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww gbroooooo bgggggggg robrrrrrr orobbbbbb yyyyyyyyy"),
 		},
 		{
 			name: "Gb permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGb},
-			want: rubik.NewCube("wwwwwwwww grbgggggg obgrrrrrr rgrbbbbbb boooooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww obgrrrrrr rgrbbbbbb boooooooo grbgggggg yyyyyyyyy"),
 		},
 		{
 			name: "Gc permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGc},
-			want: rubik.NewCube("wwwwwwwww ggbgggggg obgrrrrrr rorbbbbbb brooooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww obgrrrrrr rorbbbbbb brooooooo ggbgggggg yyyyyyyyy"),
 		},
 		{
 			name: "Gd permutation",
 			args: args{cube: rubik.NewSolvedCube(), alg: PllPermGd},
-			want: rubik.NewCube("wwwwwwwww boggggggg rrbrrrrrr ogobbbbbb gbroooooo yyyyyyyyy"),
+			want: rubik.NewCube("wwwwwwwww gbroooooo boggggggg rrbrrrrrr ogobbbbbb yyyyyyyyy"),
 		},
 	}
 	for _, tt := range tests {
@@ -142,8 +142,8 @@ func Test_reverseAlg(t *testing.T) {
 		want string
 	}{
 		{"T permutation", args{PllPermT}, "F R U' R' U R U R2 F' R U R U' R'"},
-		{"Aa permutation", args{PllPermAa}, "x R2 D2 R U R' D2 R U' R x'"},
-		{"H permutation", args{PllPermH}, "M2 U' M2 U2 M2 U' M2"},
+		{"Aa permutation", args{PllPermAa}, "x' R2 D2 R U R' D2 R U' R x"},
+		{"H permutation", args{PllPermH}, "M2' U' M2' U2 M2' U' M2'"},
 		{"Ua permutation", args{PllPermUa}, "R2 U R U R' U' R' U' R' U R'"},
 	}
 
